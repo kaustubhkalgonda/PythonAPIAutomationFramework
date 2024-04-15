@@ -20,3 +20,7 @@ class APIConstants(object):
     def url_get_booking_ids():
         return "https://restful-booker.herokuapp.com/booking"
 
+    @staticmethod
+    def url_get_booking(booking_id):
+        return "https://restful-booker.herokuapp.com/booking/" + str(booking_id)
+
