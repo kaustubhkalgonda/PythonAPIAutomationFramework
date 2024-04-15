@@ -3,7 +3,7 @@ import requests, json
 
 def get_request(url, auth):
     get_response = requests.get(url=url, auth=auth)
-    return get_response.json()
+    return get_response
 
 
 def post_request(url, auth, headers, payload, in_json):

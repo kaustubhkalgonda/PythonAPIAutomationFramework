@@ -7,7 +7,6 @@ from src.helpers.common_verifications import *
 
 
 class TestCreateBooking(object):
-    @pytest.mark.positive
     @allure.title("Verify that status code and booking id is not null.")
     def test_create_booking_positive(self):
         # url, payload, headers
