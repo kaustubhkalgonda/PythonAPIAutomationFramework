@@ -10,9 +10,12 @@ class Utils(object):
             "Content-Type": "application/json",
             "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
         }
+        return headers
 
-    def common_headers_put_delete_cookie(self, token):
+    def common_headers_put_delete_cookie(token):
         headers = {
             "Content-Type": "application/json",
-            "Cookie": "token=" + str(token)
+            "Cookie": "token=" + str(token),
+            "Accept":"application/json"
         }
+        return headers

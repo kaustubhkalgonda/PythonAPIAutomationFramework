@@ -17,6 +17,19 @@ def payload_create_booking():
     }
     return payload
 
+def payload_update_booking():
+    payload = {
+        "firstname": "Kaustubh",
+        "lastname": "Kalgonda",
+        "totalprice": 555,
+        "depositpaid": False,
+        "bookingdates": {
+            "checkin": "2023-01-01",
+            "checkout": "2023-01-08"
+        },
+        "additionalneeds": "Kitchen"
+    }
+    return payload
 
 def payload_create_booking_dynamic_data():
     payload = {
