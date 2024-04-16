@@ -12,18 +12,6 @@ class TestUpdateBooking(object):
         with open(file=file_name,mode='r') as file:
             return json.load(file)
 
-    @pytest.fixture()
-    def create_token(self):
-        response = post_request(url=APIConstants.url_create_token(), auth=None, payload=payload_create_token(),
-                                headers=Utils.common_headers_json(), in_json=False)
-        return response.json()["token"]
-
-    @pytest.fixture()
-    def create_booking(self):
-        response = post_request(url=APIConstants.url_create_booking(), payload=payload_create_booking(),
-                                headers=Utils.common_headers_json(), auth=None, in_json=False)
-        return response.json()["bookingid"]
-
     @allure.title("Verify update booking status code")
     def test_update_booking_status_code(self, create_booking, create_token):
         response = put_request(url=APIConstants.url_update_patch_delete(booking_id=create_booking), auth=None,
