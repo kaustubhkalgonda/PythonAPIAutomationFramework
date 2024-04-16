@@ -17,7 +17,7 @@ class TestCreateBooking(object):
     def test_create_booking_positive(self):
         # url, payload, headers
         response = post_request(url=APIConstants.url_create_booking(), payload=payload_create_booking(),
-                                headers=Utils.common_headers_json(self=self), auth=None, in_json=False)
+                                headers=Utils.common_headers_json(), auth=None, in_json=False)
         booking_id = response.json()["bookingid"]
         verify_http_status_code(response_data=response.status_code, expected_data=200)
         verify_response_key_not_none(booking_id)
@@ -26,13 +26,13 @@ class TestCreateBooking(object):
     def test_create_booking_empty_payload(self):
         # url, payload, headers
         response = post_request(url=APIConstants.url_create_booking(), payload="",
-                                headers=Utils.common_headers_json(self=self), auth=None, in_json=False)
+                                headers=Utils.common_headers_json(), auth=None, in_json=False)
         verify_http_status_code(response_data=response.status_code, expected_data=400)
 
     @allure.title("Verify response json schema.")
     def test_create_booking_schema(self):
         # url, payload, headers
         response = post_request(url=APIConstants.url_create_booking(), payload=payload_create_booking(),
-                                headers=Utils.common_headers_json(self=self), auth=None, in_json=False)
+                                headers=Utils.common_headers_json(), auth=None, in_json=False)
         file_path =os.getcwd()+"/create_booking_schema.json"
         validate(instance=response.json(), schema=self.load_schema(file_path))
