@@ -1,5 +1,4 @@
-import pytest, allure, time, os
-from jsonschema import validate
+import pytest
 from src.constants.api_constants import APIConstants
 from src.helpers.payload_manager import *
 from src.utils.utils import Utils
